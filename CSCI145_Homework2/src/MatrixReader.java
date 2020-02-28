@@ -23,7 +23,6 @@ public class MatrixReader {
                     // Splits pairs into column positions and values
                     int colPosition = Integer.parseInt(element[0]);
                     int value = Integer.parseInt(element[1]);
-                    System.out.println(colPosition + " " + value);
                     sparseMatrix.insert(rowCount, colPosition, value);
                 }
             }

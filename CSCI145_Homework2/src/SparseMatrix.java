@@ -7,12 +7,26 @@ public class SparseMatrix {
 
     public SparseMatrix(int rows, int columns) {
         this.totalRows = rows;
+        this.firstRow = new MatrixRow();
         this.totalColumns = columns;
+        this.firstColumn = new MatrixColumn();
 
+        initRows();
+        initColumns();
+    }
+
+    public void initRows() {
+        for(int i = 0; i < totalRows; i++) {
+        }
+    }
+
+    public void initColumns() {
+        for(int i = 0; i < totalRows; i++) {
+        }
     }
 
     public void insert(int row, int column, int value) {
-
+        ValueNode newNode = new ValueNode(row, column, value);
     }
 
     public MatrixRow getRow(int position) {

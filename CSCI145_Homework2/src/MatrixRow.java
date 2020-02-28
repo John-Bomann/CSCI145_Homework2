@@ -2,6 +2,18 @@ public class MatrixRow {
     private ValueNode first;
     private MatrixRow next;
 
+    public class Node {
+        private int data;
+        private Node next;
+
+        public Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public void setFirst(ValueNode valueNode) {
+        this.first = valueNode;
+    }
 
     public ValueNode getFirst() {
         return first;
