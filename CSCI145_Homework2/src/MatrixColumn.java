@@ -16,8 +16,10 @@ public class MatrixColumn {
     }
 
     public void insert(ValueNode value) {
-
+        value.setNextColumn(first);
+        this.first = value;
     }
+    // Temporary until sorting is implemented
 
     public int get(int position) {
         return 0;

@@ -19,8 +19,10 @@ public class MatrixRow {
     }
 
     public void insert(ValueNode value) {
-
+        value.setNextRow(first);
+        this.first = value;
     }
+    // Temporary until sorting implemented
 
     public int get(int position) {
         return 0;

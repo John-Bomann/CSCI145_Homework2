@@ -16,17 +16,21 @@ public class SparseMatrix {
     }
 
     public void initRows() {
+        MatrixRow temp = firstRow;
         for(int i = 0; i < totalRows; i++) {
+            temp.setNext(new MatrixRow());
         }
     }
 
     public void initColumns() {
+        MatrixColumn temp = firstColumn;
         for(int i = 0; i < totalRows; i++) {
         }
     }
 
     public void insert(int row, int column, int value) {
         ValueNode newNode = new ValueNode(row, column, value);
+
     }
 
     public MatrixRow getRow(int position) {
