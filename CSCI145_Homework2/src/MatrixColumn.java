@@ -20,16 +20,16 @@ public class MatrixColumn {
 			first=value;
 		}
 		ValueNode temp = first;
-		while(temp.getColumn()<column && temp.getNext()!=null && temp.getNext().getColumn()<column){
-			temp=temp.getNext();
+		while(temp.getColumn()<column && temp.getNextColumn()!=null && temp.getNextColumn().getColumn()<column){
+			temp=temp.getNextColumn();
 		}
 		if(temp.getColumn==column){
 			temp.setValue(value.getValue());
 			return;
 		}
-		ValueNode next = temp.getNext();
-		temp.setNext(value);
-		value.setNext(next);
+		ValueNode next = temp.getNextColumn();
+		temp.setNextColumn(value);
+		value.setNextColumn(next);
     }
     // Temporary until sorting is implemented
 

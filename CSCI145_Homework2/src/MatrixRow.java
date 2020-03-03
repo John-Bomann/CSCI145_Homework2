@@ -23,16 +23,16 @@ public class MatrixRow {
 			first=value;
 		}
 		ValueNode temp = first;
-		while(temp.getRow()<row && temp.getNext()!=null && temp.getNext().getRow()<row){
-			temp=temp.getNext();
+		while(temp.getRow()<row && temp.getNextRow()!=null && temp.getNextRow().getRow()<row){
+			temp=temp.getNextRow();
 		}
 		if(temp.getRow==row){
 			temp.setValue(value.getValue());
 			return;
 		}
-		ValueNode next = temp.getNext();
-		temp.setNext(value);
-		value.setNext(next);
+		ValueNode next = temp.getNextRow();
+		temp.setNextRow(value);
+		value.setNextRow(next);
     }
     // Temporary until sorting implemented
 
