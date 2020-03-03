@@ -37,7 +37,8 @@ public class MatrixRow {
     // Temporary until sorting implemented
 
     public int get(int position) {
-        return 0;
+        ValueNode tempFirst = getFirst();
+
     }
 
 }
