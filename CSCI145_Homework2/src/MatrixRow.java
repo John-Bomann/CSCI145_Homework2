@@ -19,8 +19,20 @@ public class MatrixRow {
     }
 
     public void insert(ValueNode value) {
-        value.setNextRow(first);
-        this.first = value;
+        if(first==null){
+			first=value;
+		}
+		ValueNode temp = first;
+		while(temp.getRow()<row && temp.getNext()!=null && temp.getNext().getRow()<row){
+			temp=temp.getNext();
+		}
+		if(temp.getRow==row){
+			temp.setValue(value.getValue());
+			return;
+		}
+		ValueNode next = temp.getNext();
+		temp.setNext(value);
+		value.setNext(next);
     }
     // Temporary until sorting implemented
 
