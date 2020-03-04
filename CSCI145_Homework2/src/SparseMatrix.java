@@ -70,6 +70,8 @@ public class SparseMatrix {
             tempNode = tempNode.getNextColumn();
     }
 
+
+
         return tempNode.getValue();
     }
 
