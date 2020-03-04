@@ -33,15 +33,28 @@ public class SparseMatrix {
 
     public void insert(int row, int column, int value) {
         ValueNode newNode = new ValueNode(row, column, value);
+        MatrixRow destinationRow = getRow(row);
+        destinationRow.insert(newNode);
+
+        MatrixColumn destinationColumn = getColumn(column);
+        destinationColumn.insert(newNode);
 
     }
 
     public MatrixRow getRow(int position) {
-        return null;
+        MatrixRow current = firstRow;
+        for(int i = 0; i < position-1; i++) {
+            current = current.getNext();
+        }
+        return current;
     }
 
     public MatrixColumn getColumn(int position) {
-        return null;
+        MatrixColumn current = firstColumn;
+        for(int i = 0; i < position-1; i++) {
+            current = current.getNext();
+        }
+        return current;
     }
 
     public int getValue(int row, int column) {
