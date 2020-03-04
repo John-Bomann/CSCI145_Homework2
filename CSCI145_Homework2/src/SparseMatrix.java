@@ -27,7 +27,7 @@ public class SparseMatrix {
         MatrixColumn temp = firstColumn;
         for(int i = 0; i < totalRows; i++) {
             temp.setNext(new MatrixColumn());
-            temp = temp.setNext();
+            temp = temp.getNext();
         }
     }
 
