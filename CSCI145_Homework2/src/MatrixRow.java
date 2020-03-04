@@ -23,10 +23,10 @@ public class MatrixRow {
 			first=value;
 		}
 		ValueNode temp = first;
-		while(temp.getRow()<row && temp.getNextRow()!=null && temp.getNextRow().getRow()<row){
+		while(temp.getRow()<value.getRow() && temp.getNextRow()!=null && temp.getNextRow().getRow()<value.getRow()){
 			temp=temp.getNextRow();
 		}
-		if(temp.getRow==row){
+		if(temp.getRow()==value.getRow()){
 			temp.setValue(value.getValue());
 			return;
 		}
