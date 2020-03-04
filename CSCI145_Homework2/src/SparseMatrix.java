@@ -19,12 +19,15 @@ public class SparseMatrix {
         MatrixRow temp = firstRow;
         for(int i = 0; i < totalRows; i++) {
             temp.setNext(new MatrixRow());
+            temp = temp.getNext();
         }
     }
 
     public void initColumns() {
         MatrixColumn temp = firstColumn;
         for(int i = 0; i < totalRows; i++) {
+            temp.setNext(new MatrixColumn());
+            temp = temp.setNext();
         }
     }
 
