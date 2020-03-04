@@ -21,10 +21,10 @@ public class MatrixColumn {
 			first=value;
 		}
 		ValueNode temp = first;
-		while(temp.getColumn()<column && temp.getNextColumn()!=null && temp.getNextColumn().getColumn()<column){
+		while(temp.getColumn()<value.getColumn() && temp.getNextColumn()!=null && temp.getNextColumn().getColumn()<value.getColumn()){
 			temp=temp.getNextColumn();
 		}
-		if(temp.getColumn==column){
+		if(temp.getColumn()==value.getColumn()){
 			temp.setValue(value.getValue());
 			return;
 		}
