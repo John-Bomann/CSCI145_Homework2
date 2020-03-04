@@ -58,6 +58,9 @@ public class SparseMatrix {
     }
 
     public int getValue(int row, int column) {
+        //For loop iterating through first row, output row that the valuenode is in
+        //While (column != currentValueNode) loop iterating through valuenodes in the given row, calling getcolumn on each and checking if it matches given column value
+        // Return currentValueNode.getValue
         return 0;
     }
 
