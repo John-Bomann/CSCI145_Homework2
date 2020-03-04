@@ -7,10 +7,13 @@ public class MatrixRow {
     }
 
     public ValueNode getFirst() {
+
         return first;
     }
 
     public MatrixRow getNext() {
+
+
         return next;
     }
 
@@ -28,5 +31,4 @@ public class MatrixRow {
         ValueNode tempFirst = getFirst();
 
     }
-
 }

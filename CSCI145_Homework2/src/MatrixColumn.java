@@ -4,6 +4,7 @@ public class MatrixColumn {
 
 
     public ValueNode getFirst() {
+
         return first;
     }
 

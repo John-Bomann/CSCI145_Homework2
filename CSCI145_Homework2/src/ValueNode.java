@@ -14,6 +14,7 @@ public class ValueNode {
     }
 
     public int getRow() {
+
         return row;
     }
 
