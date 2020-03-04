@@ -25,8 +25,10 @@ public class MatrixRow {
     // Temporary until sorting implemented
 
     public int get(int position) {
-        ValueNode tempFirst = getFirst();
-
+        ValueNode tempNode = getFirst();
+            for(int i = 0; i < position-1; i++) {
+                tempNode = tempNode.getNextColumn();
+        }
     }
 
 }
