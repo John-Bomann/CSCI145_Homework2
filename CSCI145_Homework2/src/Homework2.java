@@ -5,7 +5,10 @@ public class Homework2 {
         matrix.insert(1,1,1);
         matrix.insert(2,1,2);
         matrix.insert(3,1,3);
-        System.out.println(matrix.getColumn(1));
+        System.out.println(matrix.getValue(1,1));
+        System.out.println(matrix.getValue(2,1));
+        System.out.println(matrix.getValue(3,1));
+
 
 
     }

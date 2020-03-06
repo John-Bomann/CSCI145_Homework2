@@ -60,18 +60,13 @@ public class SparseMatrix {
     public int getValue(int row, int column) {
         MatrixRow current = firstRow;
 
-
-        for (int i = 0; i < row-1; i++){
+        for (int i = 0; i < row-1; i++) {
             current = current.getNext();
         }
-
         ValueNode tempNode = current.getFirst();
         while (column != tempNode.getColumn()) {
             tempNode = tempNode.getNextColumn();
     }
-
-
-
         return tempNode.getValue();
     }
 
