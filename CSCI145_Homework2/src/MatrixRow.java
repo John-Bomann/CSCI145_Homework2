@@ -37,10 +37,9 @@ public class MatrixRow {
             return;
         }
         ValueNode next = temp.getNextColumn();
-        temp.setNextRow(value);
-        value.setNextRow(next);
+        temp.setNextColumn(value);
+        value.setNextColumn(next);
     }
-    // Temporary until sorting implemented
 
     public int get(int position) {
         ValueNode tempNode = getFirst();

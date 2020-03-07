@@ -4,7 +4,6 @@ public class MatrixColumn {
 
 
     public ValueNode getFirst() {
-
         return first;
     }
 
@@ -32,7 +31,6 @@ public class MatrixColumn {
 		temp.setNextRow(value);
 		value.setNextRow(next);
     }
-    // Temporary until sorting is implemented
 
     public int get(int position) {
         return 0;
