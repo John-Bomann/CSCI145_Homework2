@@ -48,7 +48,13 @@ public class SparseMatrix {
     public MatrixRow getRow(int position) {
         MatrixRow current = firstRow;
         for(int i = 0; i < position-1; i++) {
-            current = current.getNext();
+            try {
+                current = current.getNext();
+            } catch(NullPointerException e) {
+                System.out.println("getRow was called with a row number greater than the total rows");
+                return null;
+            }
+            // Catches iterating outside of total rows
         }
         return current;
     }
@@ -57,25 +63,20 @@ public class SparseMatrix {
     public MatrixColumn getColumn(int position) {
         MatrixColumn current = firstColumn;
         for(int i = 0; i < position-1; i++) {
-            current = current.getNext();
+            try {
+                current = current.getNext();
+            } catch(NullPointerException e) {
+                System.out.println("getColumn was called with a column number greater than the total columns");
+                return null;
+            }
+            // Catches iterating outside of total columns
         }
         return current;
     }
 
     // Getter for value of the matrix index
     public int getValue(int row, int column) {
-        MatrixRow current = firstRow;
-
-        // Loops over the current MatrixRow.
-        for (int i = 0; i < row-1; i++){
-            current = current.getNext();
-        }
-
-        ValueNode tempNode = current.getFirst();
-        while (column != tempNode.getColumn()) {
-            tempNode = tempNode.getNextColumn();
-        }
-        return tempNode.getValue();
+        return getRow(row).get(column);
     }
 
     public void print() {
