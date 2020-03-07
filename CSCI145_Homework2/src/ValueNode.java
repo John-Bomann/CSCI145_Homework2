@@ -1,6 +1,7 @@
 
 
 public class ValueNode {
+    // Constructor
     private int row;
     private int column;
     private int value;
