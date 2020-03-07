@@ -33,7 +33,15 @@ public class MatrixColumn {
     }
 
     public int get(int position) {
-        return 0;
+        ValueNode tempNode = this.getFirst();
+        for (int i = 0; i < position - 1; i++) {
+            try {
+                tempNode = tempNode.getNextRow();
+            } catch(java.lang.NullPointerException e) {return 0;}
+            // Return 0 if there is no ValueNode at that position
+        }
+        return tempNode.getValue();
+        // Otherwise return value of ValueNode
     }
 
 }

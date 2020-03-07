@@ -9,13 +9,10 @@ public class MatrixRow {
     }
 
     public ValueNode getFirst() {
-
         return first;
     }
 
     public MatrixRow getNext() {
-
-
         return next;
     }
 
@@ -24,11 +21,11 @@ public class MatrixRow {
     }
 
     public void insert(ValueNode value) {
-        if (first == null) {
-            first = value;
+        if (this.getFirst() == null) {
+            this.setFirst(value);
         }
         //
-        ValueNode temp = first;
+        ValueNode temp = this.getFirst();
         while (temp.getColumn() < value.getColumn() && temp.getNextColumn() != null && temp.getNextColumn().getColumn() < value.getColumn()) {
             temp = temp.getNextColumn();
         }
@@ -42,10 +39,14 @@ public class MatrixRow {
     }
 
     public int get(int position) {
-        ValueNode tempNode = getFirst();
+        ValueNode tempNode = this.getFirst();
         for (int i = 0; i < position - 1; i++) {
-            tempNode = tempNode.getNextColumn();
+            try {
+                tempNode = tempNode.getNextColumn();
+            } catch(java.lang.NullPointerException e) {return 0;}
+            // Return 0 if there is no ValueNode at that position
         }
-    return 0;
+        return tempNode.getValue();
+        // Otherwise return value of ValueNode
     }
 }
