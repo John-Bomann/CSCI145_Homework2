@@ -29,14 +29,14 @@ public class MatrixRow {
         }
         //
         ValueNode temp = first;
-        while (temp.getRow() < value.getRow() && temp.getNextRow() != null && temp.getNextRow().getRow() < value.getRow()) {
-            temp = temp.getNextRow();
+        while (temp.getColumn() < value.getColumn() && temp.getNextColumn() != null && temp.getNextColumn().getColumn() < value.getColumn()) {
+            temp = temp.getNextColumn();
         }
-        if (temp.getRow() == value.getRow()) {
+        if (temp.getColumn() == value.getColumn()) {
             temp.setValue(value.getValue());
             return;
         }
-        ValueNode next = temp.getNextRow();
+        ValueNode next = temp.getNextColumn();
         temp.setNextRow(value);
         value.setNextRow(next);
     }
@@ -46,7 +46,7 @@ public class MatrixRow {
         ValueNode tempNode = getFirst();
         for (int i = 0; i < position - 1; i++) {
             tempNode = tempNode.getNextColumn();
-
         }
+    return 0;
     }
 }
