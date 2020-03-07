@@ -34,14 +34,18 @@ public class MatrixColumn {
 
     public int get(int position) {
         ValueNode tempNode = this.getFirst();
-        for (int i = 0; i < position - 1; i++) {
-            try {
-                tempNode = tempNode.getNextRow();
-            } catch(java.lang.NullPointerException e) {return 0;}
-            // Return 0 if there is no ValueNode at that position
+        while(tempNode.getRow() != position) {
+            if(tempNode.getRow() > position) {
+                return 0;
+            }
+            // Returns 0 if the position is skipped over
+            tempNode = tempNode.getNextRow();
+            if(tempNode == null) {
+                return 0;
+            }
+            // Once tempNode is updated, checks if it is null, test against a get for a position greater than the last ValueNode
         }
         return tempNode.getValue();
-        // Otherwise return value of ValueNode
     }
 
 }
