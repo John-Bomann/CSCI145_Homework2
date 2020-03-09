@@ -100,7 +100,7 @@ public class SparseMatrix {
     public SparseMatrix produce(SparseMatrix other) {
         SparseMatrix newMat = new SparseMatrix(totalRows, other.totalColumns);
 		for(int row=1; row<=totalRows; row++){
-			for(int column=1; column<=other.totalColumns){
+			for(int column=1; column<=other.totalColumns; column++){
 				int value=0;
 				for(int i=1; i<=totalColumns; i++){
 					value+=getValue(row, i)*other.getValue(i, column);
