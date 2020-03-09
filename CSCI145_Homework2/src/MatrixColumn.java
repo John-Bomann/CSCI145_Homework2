@@ -16,6 +16,39 @@ public class MatrixColumn {
     }
 
     public void insert(ValueNode value) {
+        ValueNode current;
+        ValueNode temp;
+        if(first == null) {
+            first = value;
+        }
+        // If head is empty, set head to value
+        else if(value.getRow() < first.getRow()) {
+            current = first;
+            first = value;
+            first.setNextRow(current);
+        }
+        // If head not empty and value's column is less than the head's value, set head to value
+        else if(value.getRow() > first.getRow()) {
+            current = first;
+            while(current.getNextRow() != null) {
+                if(value.getRow() > current.getNextRow().getRow()) {
+                    // If current ValueNode's column is greater than the next ValueNode's column
+                    current = current.getNextRow();
+                }
+                else if(value.getRow() < current.getNextRow().getRow()) {
+                    // If current ValueNode's column is less than the next ValueNode's column
+                    temp = current.getNextRow();
+                    current.setNextRow(value);
+                    current.getNextRow().setNextRow(temp);
+                    // Sets next ValueNode to be successor
+                    return;
+                }
+            }
+            current.setNextRow(value);
+        }
+    }
+
+    public void insert2(ValueNode value) {
         if(first==null){
 			first=value;
 		}
@@ -33,7 +66,7 @@ public class MatrixColumn {
     }
 
     public int get(int position) {
-        ValueNode tempNode = this.getFirst();
+        ValueNode tempNode = getFirst();
         while(tempNode.getRow() != position) {
             if(tempNode.getRow() > position) {
                 return 0;

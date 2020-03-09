@@ -3,11 +3,6 @@ public class MatrixRow {
     private ValueNode first;
     private MatrixRow next;
 
-
-    public void setFirst(ValueNode valueNode) {
-        this.first = valueNode;
-    }
-
     public ValueNode getFirst() {
         return first;
     }
@@ -19,13 +14,45 @@ public class MatrixRow {
     public void setNext(MatrixRow next) {
         this.next = next;
     }
-
     public void insert(ValueNode value) {
-        if (this.getFirst() == null) {
-            this.setFirst(value);
+        ValueNode current;
+        ValueNode temp;
+        if(first == null) {
+            first = value;
+        }
+        // If head is empty, set head to value
+        else if(value.getColumn() < first.getColumn()) {
+            current = first;
+            first = value;
+            first.setNextColumn(current);
+        }
+        // If head not empty and value's column is less than the head's value, set head to value
+        else if(value.getColumn() > first.getColumn()) {
+            current = first;
+            while(current.getNextColumn() != null) {
+                if(value.getColumn() > current.getNextColumn().getColumn()) {
+                    // If current ValueNode's column is greater than the next ValueNode's column
+                    current = current.getNextColumn();
+                }
+                else if(value.getColumn() < current.getNextColumn().getColumn()) {
+                    // If current ValueNode's column is less than the next ValueNode's column
+                    temp = current.getNextColumn();
+                    current.setNextColumn(value);
+                    current.getNextColumn().setNextColumn(temp);
+                    // Sets next ValueNode to be successor
+                    return;
+                }
+            }
+            current.setNextColumn(value);
+        }
+    }
+
+    public void insert1(ValueNode value) {
+        if (first == null) {
+            first = value;
         }
         //
-        ValueNode temp = this.getFirst();
+        ValueNode temp = getFirst();
         while (temp.getColumn() < value.getColumn() && temp.getNextColumn() != null && temp.getNextColumn().getColumn() < value.getColumn()) {
             temp = temp.getNextColumn();
         }
@@ -39,7 +66,7 @@ public class MatrixRow {
     }
 
     public int get(int position) {
-        ValueNode tempNode = this.getFirst();
+        ValueNode tempNode = first;
         while(tempNode.getColumn() != position) {
             if(tempNode.getColumn() > position) {
                 return 0;

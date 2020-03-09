@@ -28,7 +28,7 @@ public class SparseMatrix {
     // Set a temporary column.
     public void initColumns() {
         MatrixColumn temp = firstColumn;
-        for(int i = 0; i < totalRows; i++) {
+        for(int i = 0; i < totalColumns; i++) {
             temp.setNext(new MatrixColumn());
             temp = temp.getNext();
         }
@@ -80,7 +80,17 @@ public class SparseMatrix {
     }
 
     public void print() {
-
+        for(int i = 1; i <= totalRows; i++) {
+            for(int j = 1; j <= totalColumns; j++) {
+                if(getValue(i,j) >= 10) {
+                    System.out.print(getValue(i,j) + " ");
+                }
+                else {
+                    System.out.print(getValue(i,j) + "  ");
+                }
+            }
+            System.out.println("");
+        }
     }
 
     public SparseMatrix transpose() {

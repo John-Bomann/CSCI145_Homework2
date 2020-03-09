@@ -13,7 +13,9 @@ public class MatrixReader {
             int numCol = Integer.parseInt(numColStr);
             // Creates scanner, reads first 2 lines
             SparseMatrix sparseMatrix = new SparseMatrix(numRow, numCol);
-            int rowCount = 0;
+
+
+            int rowCount = 1;
             while (scan.hasNext()) {
                 String nextRow = scan.nextLine();
                 String[] rowElements = nextRow.split(" ");
@@ -25,6 +27,7 @@ public class MatrixReader {
                     int value = Integer.parseInt(element[1]);
                     sparseMatrix.insert(rowCount, colPosition, value);
                 }
+                rowCount += 1;
             }
             return sparseMatrix;
         } catch (Exception e) {
