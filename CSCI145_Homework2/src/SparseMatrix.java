@@ -100,6 +100,7 @@ public class SparseMatrix {
         for(int i = 1; i <= this.totalRows; i++) {
             for(int j = 1; j <= this.totalColumns; j++) {
                 transMatrix.insert(j, i, this.getValue(i,j));
+                // Inserts into transMatrix with row and column switched
             }
         }
         return transMatrix;
