@@ -62,7 +62,7 @@ public class SparseMatrix {
     // Creates a getter for MatrixColumn
     public MatrixColumn getColumn(int position) {
         MatrixColumn current = firstColumn;
-        for(int i = 0; i < position-1; i++) {
+        for(int i = 0; i < position - 1; i++) {
             try {
                 current = current.getNext();
             } catch(NullPointerException e) {
@@ -84,7 +84,7 @@ public class SparseMatrix {
             for(int j = 1; j <= totalColumns; j++) {
                 int tempValue = getValue(i,j);
                 System.out.print(getValue(i,j) + " ");
-                while(tempValue <=1000) {
+                while(tempValue <= 1000) {
                     System.out.print(" ");
                     tempValue = (tempValue + 1) * 10;
                 }
@@ -92,19 +92,26 @@ public class SparseMatrix {
             }
             System.out.println("");
         }
+        System.out.println("--------------------------------------");
     }
 
     public SparseMatrix transpose() {
-        return null;
+        SparseMatrix transMatrix = new SparseMatrix(totalColumns, totalRows);
+        for(int i = 1; i <= this.totalRows; i++) {
+            for(int j = 1; j <= this.totalColumns; j++) {
+                transMatrix.insert(j, i, this.getValue(i,j));
+            }
+        }
+        return transMatrix;
     }
 
     public SparseMatrix produce(SparseMatrix other) {
             SparseMatrix newMat = new SparseMatrix(totalRows, other.totalColumns);
-		for(int row=1; row<=totalRows; row++){
-			for(int column=1; column<=other.totalColumns; column++){
-				int value=0;
-				for(int i=1; i<=totalColumns; i++){
-					value+=getValue(row, i)*other.getValue(i, column);
+		for(int row = 1; row <= totalRows; row++){
+			for(int column = 1; column <= other.totalColumns; column++){
+				int value = 0;
+				for(int i = 1; i <= totalColumns; i++){
+					value += getValue(row, i)*other.getValue(i, column);
 				}
 				newMat.insert(row, column, value);
 			}
