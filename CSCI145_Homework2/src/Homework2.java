@@ -10,10 +10,9 @@ public class Homework2 {
     }
     public void run() {
         MatrixReader matrixReader = new MatrixReader();
-        //SparseMatrix matrixA = matrixReader.read("C:\\Users\\John\\Documents\\GitHub\\CSCI145Homework2\\CSCI145_Homework2\\src\\matrixA.txt");
+        SparseMatrix matrixA = matrixReader.read("C:\\Users\\John\\Documents\\GitHub\\CSCI145Homework2\\CSCI145_Homework2\\src\\matrixA.txt");
         SparseMatrix matrixB = matrixReader.read("C:\\Users\\John\\Documents\\GitHub\\CSCI145Homework2\\CSCI145_Homework2\\src\\matrixB.txt");
-        matrixB.print();
-
-
+        SparseMatrix matrix = matrixA.produce(matrixB);
+        matrix.print();
     }
 }

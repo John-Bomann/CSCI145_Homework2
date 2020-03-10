@@ -82,12 +82,13 @@ public class SparseMatrix {
     public void print() {
         for(int i = 1; i <= totalRows; i++) {
             for(int j = 1; j <= totalColumns; j++) {
-                if(getValue(i,j) >= 10) {
-                    System.out.print(getValue(i,j) + " ");
+                int tempValue = getValue(i,j);
+                System.out.print(getValue(i,j) + " ");
+                while(tempValue <=1000) {
+                    System.out.print(" ");
+                    tempValue = (tempValue + 1) * 10;
                 }
-                else {
-                    System.out.print(getValue(i,j) + "  ");
-                }
+                // While loop keeps matrix organized while numbers are less than 10000
             }
             System.out.println("");
         }
@@ -98,7 +99,7 @@ public class SparseMatrix {
     }
 
     public SparseMatrix produce(SparseMatrix other) {
-        SparseMatrix newMat = new SparseMatrix(totalRows, other.totalColumns);
+            SparseMatrix newMat = new SparseMatrix(totalRows, other.totalColumns);
 		for(int row=1; row<=totalRows; row++){
 			for(int column=1; column<=other.totalColumns; column++){
 				int value=0;
