@@ -51,7 +51,7 @@ public class MatrixRow {
         if (first == null) {
             first = value;
         }
-        //
+
         ValueNode temp = getFirst();
         while (temp.getColumn() < value.getColumn() && temp.getNextColumn() != null && temp.getNextColumn().getColumn() < value.getColumn()) {
             temp = temp.getNextColumn();

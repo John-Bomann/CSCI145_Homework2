@@ -94,7 +94,19 @@ public class SparseMatrix {
     }
 
     public SparseMatrix transpose() {
-        return null;
+        SparseMatrix matrixTransp = new SparseMatrix(totalRows, totalColumns);
+
+        for(int i = 0; i <= totalRows-1; i++) {
+            for (int j = 0; j <= totalColumns - 1; j++) {
+                matrixTransp.firstColumn.insert(firstRow.getValue(j));
+
+            }
+
+            // next row and next col in here
+        }
+
+        return matrixTransp;
+
     }
 
     public SparseMatrix produce(SparseMatrix other) {
